@@ -12,7 +12,7 @@ import java.util.Comparator;
  * @see Comparable
  * @see Comparator
  */
-public interface Sort {
+public interface Sort{
 
     /**
      * Выполняет сортировку переданного массива объектов.
