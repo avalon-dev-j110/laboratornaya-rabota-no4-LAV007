@@ -6,6 +6,7 @@
 package ru.avalon.java.dev.j10.labs;
 
 import java.util.Comparator;
+import java.util.Arrays;
 
 /**
  *
@@ -14,18 +15,18 @@ import java.util.Comparator;
 public class RealSort implements Sort {
 
     @Override
-    public void sort(Object[] array) {
-        
+    public void sort(Object[] str) {
+         Arrays.sort(str);
     }
 
     @Override
-    public void sort(Comparable[] array) {
-        
+    public void sort(Comparable[] person) {
+        Arrays.sort(person);
     }
 
     @Override
     public void sort(Object[] array, Comparator comparator) {
-        
+        Arrays.sort(array, comparator);
     }
     
 }
