@@ -6,6 +6,7 @@
 package ru.avalon.java.dev.j10.labs;
 
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  *
@@ -13,10 +14,23 @@ import java.util.Date;
  */
 public class RealPerson implements Person{
     
-    private String name = "Default";
-    private Date data = new Date();
+    private String name;
+    private Date data;
+    private GregorianCalendar calendar;
     
-    public void setName(String n){  // <-- Почему не могу использовать этот метод в главном классе?
+    public RealPerson(String name, int month, int day, int year){
+        this.name = name;
+        calendar = new GregorianCalendar(year, month - 1/*ДЛЯ СЕБЯ - минус один - потому что массив!!!*/, day);
+        data = calendar.getTime();
+    }
+          /*Когда создаю с помощью цикла for новые объекты типа RealPerson, не могу использовать этот конструктор, т.к.:
+          1.) не могу задать разные имена для разных объектов --- +++;
+          2.) не понял как работать с классом Date --- разобрался*/ 
+    
+    public void setName(String n){  /* <-- Почему не могу использовать этот метод в главном классе? persons[0].setName("");
+                                           Из-за того что implements, a не extends (Интерфейс, а не класс)?
+                                           Проповал решить этот вопрос с помощью static метода вне метода main - не помогло
+                                           ***!!!ОТВЕТ СМОТРИ В ТЛГ-КАНАЛЕ!!!***/
         name = n;
     }
 
@@ -43,7 +57,6 @@ public class RealPerson implements Person{
 
     @Override
     public String toString() {
-        return "name of this person is " + getName() + "\n" + 
-                "date of birth of this person is " + data;
+        return getName() + "\t" + "was born"  + "\t" + data;
     }    
 }
