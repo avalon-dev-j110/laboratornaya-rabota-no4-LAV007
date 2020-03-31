@@ -11,11 +11,12 @@ import java.util.Comparator;
  *
  * @author vbg47
  */
-public class RealComparator implements Comparator {
+public class RealComparator implements Comparator<String> {
 
     @Override
-    public int compare(Object t, Object t1) {
-        return Integer.compare(t1.hashCode(), t.hashCode());
+    public int compare(String t, String t1) {
+        return t1.compareTo(t);
+        //return Integer.compare(t1.hashCode(), t.hashCode());
     }
     
 }
